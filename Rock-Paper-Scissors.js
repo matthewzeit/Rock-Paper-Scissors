@@ -1,3 +1,15 @@
+function getComputerChoice() {
+    let computerChoice = Math.floor(Math.random() * 100);
+    if (computerChoice <= 33) {
+        computerChoice = 'Rock';
+    } else if (computerChoice <= 66) {
+        computerChoice = 'Paper'
+    } else {
+        computerChoice = 'Scissors'
+    }
+    return computerChoice;
+}
+
 function getHumanChoice() {
     let humanChoice = prompt("Please enter your choice 'Rock', 'Paper' or 'Scissors'.", "Rock");
     if (humanChoice == "Rock" || humanChoice == "Paper" || humanChoice == "Scissors" || humanChoice == "scissors" || humanChoice == "rock" || humanChoice == "paper") {
@@ -20,4 +32,7 @@ if (userChoice == undefined) {
     userChoice = tryAgain();
 }
 
+computerChoice = getComputerChoice();
+
 console.log(userChoice);
+console.log(computerChoice);
