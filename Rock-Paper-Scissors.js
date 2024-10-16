@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 100);
     if (computerChoice <= 33) {
@@ -27,12 +30,35 @@ function tryAgain() {
     }
 }
 
-let userChoice = getHumanChoice();
-if (userChoice == undefined) {
-    userChoice = tryAgain();
+function playRound() {
+    let userChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
+    if (userChoice == computerChoice) {
+        alert(`The computer chose ${computerChoice} and you chose ${userChoice} the result is a tie!`);
+    } else if (userChoice == 'Rock' && computerChoice == 'Paper') {
+        alert(`The computer chose ${computerChoice} and you chose ${userChoice} the computer won!`);
+        computerScore++;
+    } else if (userChoice == 'Rock' && computerChoice == 'Scissors') {
+        alert(`The computer chose ${computerChoice} and you chose ${userChoice} you have won!`);
+        humanScore++;
+    } else if (userChoice == 'Paper' && computerChoice == 'Rock') {
+        alert(`The computer chose ${computerChoice} and you chose ${userChoice} you have won!`);
+        humanScore++;
+    } else if (userChoice == 'Paper' && computerChoice == 'Scissors') {
+        alert(`The computer chose ${computerChoice} and you chose ${userChoice} the computer won!`);
+        computerScore++;
+    } else if (userChoice == 'Scissors' && computerChoice == 'Paper') {
+        alert(`The computer chose ${computerChoice} and you chose ${userChoice} you have won!`);
+         humanScore++
+    } else if (userChoice == 'Scissors' && computerChoice == 'Rock') {
+        alert(`The computer chose ${computerChoice} and you chose ${userChoice} the computer won!`);
+        computerScore++;
+    }
 }
 
-computerChoice = getComputerChoice();
+playRound();
 
-console.log(userChoice);
-console.log(computerChoice);
+
+
+console.log(humanScore);
+console.log(computerScore);
